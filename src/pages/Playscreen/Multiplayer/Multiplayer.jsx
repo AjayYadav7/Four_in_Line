@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Box, Button, Typography, useTheme } from '@mui/material';
-import styles from './index.styles';
+import { Box, useTheme } from '@mui/material';
 import YellowMarker from "../../../assets/images/marker-yellow.svg";
 import RedMarker from "../../../assets/images/marker-red.svg";
 import PlayerOne from "../../../assets/images/player-one.svg";
@@ -332,100 +331,101 @@ const Multiplayer = () => {
       Multiplayer
       <img
         src={!turn ? YellowMarker : RedMarker}
-        className={styles.marker}
+        className='marker'
         style={{ position: "absolute", left: `${markerMove.x}px` }}
         alt="YellowMarker"
       />
-      <Box sx={styles.main}>
-        <Box sx={styles.playerOne({theme})}>
+      <Box className="main">
+        {/* <Box sx={styles.playerOne({theme})}>
           <img src={PlayerOne} alt="PlayerOne" />
           <Typography>{!isPlayer ? "YOU" : "PLAYER 1"}</Typography>
           <Typography variant='h2'>{yellowScore}</Typography>
-        </Box>
+        </Box> */}
         <Box
-          sx={styles.board({theme})}
+          // sx={styles.board({theme})}
+          className="board"
           // onMouseEnter={updateDisplay}
           // onMouseLeave={updateDisplay}
           onMouseMove={updateDisplay}
           // onClick={handlePlay}
           ref={boardRef}
           >
-          <Button
+          <button
             id="0"
-            sx={styles.mobileButton({theme})}
+            className='mobileButton'
             button1
             onClick={handlePlay}
             disabled={isButtonDisabled}
             ref={button1}
           >
             1
-          </Button>
-          <Button
+          </button>
+          <button
             id="1"
-            sx={styles.mobileButton({theme})}
+            className='mobileButton'
             button1
             onClick={handlePlay}
             disabled={isButtonDisabled}
             ref={button2}
           >
             2
-          </Button>
-          <Button
+          </button>
+          <button
             id="2"
-            sx={styles.mobileButton({theme})}
+            className='mobileButton'
             button1
             onClick={handlePlay}
             disabled={isButtonDisabled}
             ref={button3}
           >
             3
-          </Button>
-          <Button
+          </button>
+          <button
             id="3"
-            sx={styles.mobileButton({theme})}
+            className='mobileButton'
             button1
             onClick={handlePlay}
             disabled={isButtonDisabled}
             ref={button4}
           >
             4
-          </Button>
-          <Button
+          </button>
+          <button
             id="4"
-            sx={styles.mobileButton({theme})}
+            className='mobileButton'
             button1
             onClick={handlePlay}
             disabled={isButtonDisabled}
             ref={button5}
           >
             5
-          </Button>
-          <Button
+          </button>
+          <button
             id="5"
-            sx={styles.mobileButton({theme})}
+            className='mobileButton'
             button1
             onClick={handlePlay}
             disabled={isButtonDisabled}
             ref={button6}
           >
             6
-          </Button>
-          <Button
-            sx={styles.mobileButton({theme})}
+          </button>
+          <button
+            className='mobileButton'
             onClick={handlePlay}
             disabled={isButtonDisabled}
             ref={button7}
             id="6"
           >
             7
-          </Button>
+          </button>
           {console.log("compare balls",balls)}
           {balls.map((ball) => {
             return (
               <div
                 key={ball.num}
-                className={`${ball.check && styles.ballDiv} ${
-                  styles.ballClass
+                className={`${ball.check && 'ballDiv'} ${
+                  'ballClass'
                 }`}
                 style={{
                   position: "absolute",
@@ -448,16 +448,19 @@ const Multiplayer = () => {
             alt="WhiteBoard"
             className='WhiteBoard'
           />
+          
         </Box>
         {/* <Box className='playerTwo'>
           <img src={isPlayer ? PlayerTwo : CPU} alt="PlayerTwo" />
-
+          
           <p>{!isPlayer ? "CPU" : "PLAYER 2"}</p>
-
+          
           <h2>{redScore}</h2>
         </Box> */}
         {/* </div> */}
-        {winner ? (
+        <div className="winnerBoard">Reset game</div>
+        {/* {
+          winner ? (
             <div className='winnerBoard'>
             <p>
               {!isPlayer && turn
@@ -496,7 +499,7 @@ const Multiplayer = () => {
               </div>
             </Box>
           )
-        }
+        } */}
 
       </Box>
     </Box>
