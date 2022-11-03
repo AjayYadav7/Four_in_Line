@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Box, useTheme } from '@mui/material';
 import YellowMarker from "../../../assets/images/marker-yellow.svg";
 import RedMarker from "../../../assets/images/marker-red.svg";
 import PlayerOne from "../../../assets/images/player-one.svg";
@@ -92,7 +91,6 @@ let winningArray = [
 
 const Multiplayer = () => {
   // const location = useLocation();
-  const theme = useTheme();
   const isPlayer = 'location';
   const [markerMove, setMarkerMove] = useState({ x: 200, y: 200 });
   const [turn, setTurn] = useState(true);
@@ -326,8 +324,25 @@ const Multiplayer = () => {
     }
   };
 
+  const handleReset = () => {
+    setBalls([]);
+    setTimer(0);
+    setWinner("");
+    setRedPlayerBalls([]);
+    setYellowPlayerBalls([]);
+    setSlot({
+      0: 5,
+      1: 5,
+      2: 5,
+      3: 5,
+      4: 5,
+      5: 5,
+      6: 5,
+    });
+  };
+
   return (
-    <Box>
+    <div>
       Multiplayer
       <img
         src={!turn ? YellowMarker : RedMarker}
@@ -335,13 +350,13 @@ const Multiplayer = () => {
         style={{ position: "absolute", left: `${markerMove.x}px` }}
         alt="YellowMarker"
       />
-      <Box className="main">
-        {/* <Box sx={styles.playerOne({theme})}>
+      <div className="main">
+        {/* <div sx={styles.playerOne({theme})}>
           <img src={PlayerOne} alt="PlayerOne" />
           <Typography>{!isPlayer ? "YOU" : "PLAYER 1"}</Typography>
           <Typography variant='h2'>{yellowScore}</Typography>
-        </Box> */}
-        <Box
+        </div> */}
+        <div
           // sx={styles.board({theme})}
           className="board"
           // onMouseEnter={updateDisplay}
@@ -449,16 +464,16 @@ const Multiplayer = () => {
             className='WhiteBoard'
           />
           
-        </Box>
-        {/* <Box className='playerTwo'>
+        </div>
+        {/* <div className='playerTwo'>
           <img src={isPlayer ? PlayerTwo : CPU} alt="PlayerTwo" />
           
           <p>{!isPlayer ? "CPU" : "PLAYER 2"}</p>
           
           <h2>{redScore}</h2>
-        </Box> */}
+        </div> */}
         {/* </div> */}
-        <div className="winnerBoard">Reset game</div>
+        <div className="winnerBoard" onClick={handleReset}>Reset game</div>
         {/* {
           winner ? (
             <div className='winnerBoard'>
@@ -475,7 +490,7 @@ const Multiplayer = () => {
             <button onClick={{}}>PLAY AGAIN</button>
             </div>
           ) : (
-            <Box className='turn'>
+            <div className='turn'>
               <img
                 className='yellowTurn'
                 src={!turn ? YellowTurn : RedTurn}
@@ -497,12 +512,12 @@ const Multiplayer = () => {
                 </p>
                 <h2>{timer}s</h2>
               </div>
-            </Box>
+            </div>
           )
         } */}
 
-      </Box>
-    </Box>
+      </div>
+    </div>
   )
 }
 
