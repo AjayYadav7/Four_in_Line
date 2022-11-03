@@ -1,0 +1,80 @@
+.BlackBoard,
+.WhiteBoard,
+.playerOne,
+.playerTwo,
+.yellowTurn,
+.turnText,
+.marker,
+.inGameFooter,
+.winnerBoard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.link {
+  color: 'white';
+  background-color: 'darkPurple';
+  padding: '8px 16px';
+  border-radius: '5rem';
+}
+
+.link:hover {
+  color: rgb(218, 216, 216);
+}
+
+.winnerBoard {
+  top: 86%;
+  z-index: 4;
+  background-color: 'white';
+  padding: 16px 28px;
+  border: 2px solid black;
+  padding: 5px 3.5rem;
+  border-radius: 1rem;
+  box-shadow: 0px 8px 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+.yellowTurn {
+  top: 86%;
+}
+
+.winnerBoard button {
+  background-color: 'darkPurple';
+  padding: 0.3rem 0.5rem;
+  color: 'white';
+  border-radius: 1rem;
+}
+
+.yellowTurn {
+  top: 86%;
+}
+.turnText {
+  top: 87%;
+}
+
+.turn p {
+  font-size: 20px;
+}
+
+.turn img,
+.turnText {
+  z-index: 4;
+}
+
+.turn {
+  width: 150x;
+
+  img {
+    width: 150px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+}
+
